@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#16233F">
 <meta name="description" content="Website resmi sekolah — profil, pengumuman, berita, statistik, dan informasi SPMB.">
-<title>SMPN 16 Makassar</title>
+<title>Beranda — Website Sekolah</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316233F'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='32' fill='%23E0AE52' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -750,6 +750,82 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
   margin-top:0;border-radius:var(--radius-lg);border:1.5px dashed var(--line);aspect-ratio:16/11;
   background:var(--card);color:var(--ink-soft);box-shadow:var(--shadow-sm);
 }
+
+/* ============================================================
+   9. PORTAL DIGITAL & SPMB (kartu portal + viewer layar penuh)
+   ============================================================ */
+.portal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media(max-width:940px){.portal-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.portal-grid{grid-template-columns:1fr;}}
+.portal-card{
+  background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:26px 24px;box-shadow:var(--shadow-sm);transition:transform .25s ease,box-shadow .25s ease;
+  display:flex;flex-direction:column;text-align:left;width:100%;
+}
+.portal-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.portal-card__icon{
+  width:52px;height:52px;border-radius:14px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:16px;color:var(--forest);flex-shrink:0;
+}
+.portal-card__icon svg{width:24px;height:24px;}
+.portal-card h4{font-size:17px;color:var(--ink);margin-bottom:8px;}
+.portal-card p{font-size:13.5px;color:var(--ink-soft);flex:1;}
+.portal-card__foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line-soft);}
+.portal-card__mode{font-family:var(--font-mono);font-size:10.5px;color:var(--gold);text-transform:uppercase;letter-spacing:.04em;display:inline-flex;align-items:center;gap:5px;}
+.portal-card__mode svg{width:12px;height:12px;flex-shrink:0;}
+.portal-card__go{color:var(--forest);display:inline-flex;flex-shrink:0;}
+.portal-card__go svg{width:18px;height:18px;}
+.portal-note{margin-top:26px;}
+
+.portal-viewer{position:fixed;inset:0;background:var(--ink);z-index:300;display:none;flex-direction:column;}
+.portal-viewer.open{display:flex;}
+.portal-viewer__bar{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px;
+  background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.1);flex-shrink:0;
+}
+.portal-viewer__title{color:#fff;font-weight:700;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.portal-viewer__actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.portal-viewer__actions a, .portal-viewer__actions button{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;font-size:12.5px;font-weight:700;
+  color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.18);transition:background .2s ease;white-space:nowrap;
+}
+.portal-viewer__actions a:hover, .portal-viewer__actions button:hover{background:rgba(255,255,255,.1);}
+.portal-viewer__actions svg{width:14px;height:14px;flex-shrink:0;}
+.portal-viewer__body{flex:1;position:relative;background:#fff;}
+.portal-viewer__body iframe{width:100%;height:100%;border:0;display:block;}
+.portal-viewer__loading{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:var(--ink-soft);font-size:13px;background:var(--paper);gap:10px;
+}
+@media(max-width:560px){
+  .portal-viewer__title{font-size:13px;}
+  .portal-viewer__actions a span, .portal-viewer__actions button span{display:none;}
+}
+
+/* ============================================================
+   10. ALUMNI & HALAMAN STATIS (kebijakan privasi, dll)
+   ============================================================ */
+.alumni-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media(max-width:940px){.alumni-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.alumni-grid{grid-template-columns:1fr;}}
+.alumni-card{
+  background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);padding:24px;
+  box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:14px;transition:transform .2s ease,box-shadow .2s ease;
+}
+.alumni-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.alumni-card__head{display:flex;align-items:center;gap:14px;}
+.alumni-card__foto{
+  width:56px;height:56px;border-radius:50%;background:var(--paper-2);color:var(--forest);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:var(--font-display);font-weight:700;font-size:19px;
+}
+.alumni-card__foto img{width:100%;height:100%;object-fit:cover;}
+.alumni-card .nama{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.3;}
+.alumni-card .meta{font-family:var(--font-mono);font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.03em;margin-top:4px;}
+.alumni-card__testimoni{font-size:13.5px;color:var(--ink-2);font-style:italic;border-top:1px solid var(--line-soft);padding-top:14px;}
+
+.prosa{max-width:760px;font-size:15px;line-height:1.9;color:var(--ink-2);}
+.prosa p{margin-bottom:18px;}
+.prosa p:last-child{margin-bottom:0;}
 </style>
 </head>
 <body>
@@ -779,8 +855,10 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
       <a href="#/informasi" data-route="informasi">Informasi</a>
       <a href="#/kesiswaan" data-route="kesiswaan">Kesiswaan</a>
       <a href="#/layanan" data-route="layanan">Layanan Publik</a>
-      <a href="#/beranda/spmb">SPMB</a>
-      <a href="#/beranda/kontak">Kontak</a>
+      <a href="#/portal" data-route="portal">Portal Digital</a>
+      <a href="#/spmb" data-route="spmb">SPMB</a>
+      <a href="#/alumni" data-route="alumni">Alumni</a>
+      <a href="#/statistik" data-route="statistik">Statistik</a>
     </div>
     <div class="nav__cta">
       <span class="nav__admin">Login Admin · Segera</span>
@@ -795,12 +873,49 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
     <a href="#/informasi" data-route="informasi">Informasi</a>
     <a href="#/kesiswaan" data-route="kesiswaan">Kesiswaan</a>
     <a href="#/layanan" data-route="layanan">Layanan Publik</a>
-    <a href="#/beranda/spmb">SPMB</a>
+    <a href="#/portal" data-route="portal">Portal Digital</a>
+    <a href="#/spmb" data-route="spmb">SPMB</a>
+    <a href="#/alumni" data-route="alumni">Alumni</a>
     <a href="#/beranda/kontak">Kontak</a>
   </div>
 </header>
 
 <main id="konten">
+
+  <div data-page="baca" class="page-hidden" id="halamanBaca">
+    <section class="section">
+      <div class="wrap" style="max-width: 820px;">
+        <a href="javascript:history.back()" style="display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 700; color: var(--forest); margin-bottom: 30px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Kembali
+        </a>
+        <div class="reveal">
+          <div id="bacaMeta" style="font-family: var(--font-mono); font-size: 12px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;"></div>
+          <h1 id="bacaJudul" style="font-size: clamp(28px, 4vw, 44px); color: var(--ink); margin-bottom: 24px; line-height: 1.25;">Memuat...</h1>
+          
+          <div id="bacaPenulisWrap" style="display: flex; align-items: center; gap: 14px; margin-bottom: 36px; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); padding: 18px 0;"></div>
+          
+          <div id="bacaThumbWrap" style="width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; background: var(--paper-2); margin-bottom: 40px; display: none;">
+            <img id="bacaThumb" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          
+          <div id="bacaIsi" class="prosa" style="font-size: 16.5px; color: var(--ink-2); line-height: 1.9;"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="lightbox" id="modalUniversal" style="z-index: 400;">
+    <div class="lightbox__inner" style="max-width: 520px; background: var(--card); border-radius: var(--radius-lg); padding: 36px 32px; box-shadow: var(--shadow-lg); position: relative; margin: 20px;">
+      <button id="tutupModalBtn" style="position: absolute; top: 16px; right: 16px; background: var(--paper-2); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--ink); transition: background 0.2s;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div id="modalIkon" style="width: 60px; height: 60px; border-radius: 16px; background: var(--paper-2); display: flex; align-items: center; justify-content: center; color: var(--forest); margin-bottom: 22px;"></div>
+      <h3 id="modalJudul" style="font-size: 24px; color: var(--ink); margin-bottom: 10px; line-height: 1.3;">Judul</h3>
+      <div id="modalMeta" style="font-family: var(--font-mono); font-size: 11.5px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 18px; font-weight: 600;"></div>
+      <p id="modalIsi" style="font-size: 15px; color: var(--ink-2); line-height: 1.65; margin-bottom: 28px; white-space: pre-line;">Isi...</p>
+      <div id="modalAksi"></div>
+    </div>
+  </div>
 
   <!-- ============================================================
        HERO
@@ -817,7 +932,7 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
         <div class="hero__meta" id="heroMeta"></div>
         <p class="hero__addr" id="heroAlamat"></p>
         <div class="hero__cta">
-          <a href="#/beranda/spmb" class="btn btn--primary">Daftar Lewat SPMB →</a>
+          <a href="#/spmb" class="btn btn--primary">Daftar Lewat SPMB →</a>
           <a href="#/beranda/kontak" class="btn btn--ghost">Hubungi Kami</a>
         </div>
       </div>
@@ -1177,6 +1292,143 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
   </div><!-- /halamanLayanan (data-page="layanan") -->
 
   <!-- ============================================================
+       PORTAL DIGITAL — halaman tersendiri, disembunyikan oleh
+       .page-hidden sampai router mengaktifkannya via #/portal
+       ============================================================ -->
+  <div data-page="portal" class="page-hidden" id="halamanPortal">
+  <section class="section" id="portal-digital">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Portal Digital</span>
+        <h2>Sistem &amp; Layanan Digital Sekolah</h2>
+        <p>Akses cepat ke sistem digital sekolah — e-learning, absensi digital, dan layanan lain yang dikelola admin. Portal bertanda "Tampil di sini" akan terbuka langsung di halaman ini; yang bertanda "Tab baru" akan membuka jendela tab baru.</p>
+      </div>
+      <div class="portal-grid reveal" id="portalDigitalGrid"></div>
+      <div class="empty-note portal-note reveal">Jika sebuah portal tidak tampil setelah dibuka (kadang diblokir oleh sistem tujuan), gunakan tombol "Tab baru" di bagian atas jendela portal.</div>
+    </div>
+  </section>
+  </div><!-- /halamanPortal (data-page="portal") -->
+
+  <!-- ============================================================
+       SPMB — halaman tersendiri, disembunyikan oleh
+       .page-hidden sampai router mengaktifkannya via #/spmb
+       ============================================================ -->
+  <div data-page="spmb" class="page-hidden" id="halamanSPMBFull">
+  <section class="section" id="spmb-penerimaan">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">SPMB</span>
+        <h2>Penerimaan Peserta Didik Baru</h2>
+        <p>Jalur pendaftaran yang sedang dibuka sekolah. Pilih salah satu jalur untuk memulai pendaftaran.</p>
+      </div>
+      <div class="portal-grid reveal" id="spmbGrid"></div>
+    </div>
+  </section>
+  </div><!-- /halamanSPMBFull (data-page="spmb") -->
+  
+  <div data-page="statistik" class="page-hidden" id="halamanStatistik">
+	  <section class="section">
+		<div class="wrap">
+		  <div class="section__head reveal">
+			<span class="eyebrow">Data Sekolah</span>
+			<h2>Statistik Terintegrasi</h2>
+			<p>Rincian data kependudukan sekolah dan statistik kunjungan website resmi.</p>
+		  </div>
+
+		  <div class="reveal" style="margin-bottom: 40px;">
+			<div class="stat-card" style="text-align: center; padding: 40px; border-radius: var(--radius-lg);">
+			  <div class="label" style="font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;">Total Kunjungan Website</div>
+			  <div class="num" id="totalPageViews" style="font-size: 56px; color: var(--forest); margin-top: 10px;">0</div>
+			</div>
+		  </div>
+
+		  <div class="reveal" style="background: var(--card); border-radius: var(--radius); border: 1px solid var(--line-soft); box-shadow: var(--shadow-sm); overflow: hidden; margin-bottom: 40px;">
+			<div style="padding: 24px 30px; border-bottom: 1px solid var(--line-soft); background: var(--paper);">
+			  <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--ink); margin: 0;">Demografi Guru & Staf</h3>
+			</div>
+			<div style="overflow-x: auto; padding: 0 30px 30px 30px;">
+			  <table style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left;">
+				<thead>
+				  <tr style="border-bottom: 2px solid var(--ink); color: var(--ink); font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.05em;">
+					<th style="padding: 16px 12px; font-weight: 700;">Kategori</th>
+					<th style="padding: 16px 12px; font-weight: 700;">Laki-laki</th>
+					<th style="padding: 16px 12px; font-weight: 700;">Perempuan</th>
+					<th style="padding: 16px 12px; font-weight: 700; color: var(--forest);">Total</th>
+				  </tr>
+				</thead>
+				<tbody id="tabelPegawaiBody" style="font-size: 15px; color: var(--ink-2);">
+				  </tbody>
+			  </table>
+			</div>
+		  </div>
+
+		  <div class="reveal" style="background: var(--card); border-radius: var(--radius); border: 1px solid var(--line-soft); box-shadow: var(--shadow-sm); overflow: hidden;">
+			<div style="padding: 24px 30px; border-bottom: 1px solid var(--line-soft); background: var(--paper);">
+			  <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--ink); margin: 0;">Sebaran Siswa Per Kelas</h3>
+			</div>
+			<div style="overflow-x: auto; padding: 0 30px 30px 30px;">
+			  <table style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left;">
+				<thead>
+				  <tr style="border-bottom: 2px solid var(--ink); color: var(--ink); font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.05em;">
+					<th style="padding: 16px 12px; font-weight: 700;">Nama Kelas</th>
+					<th style="padding: 16px 12px; font-weight: 700;">Laki-laki</th>
+					<th style="padding: 16px 12px; font-weight: 700;">Perempuan</th>
+					<th style="padding: 16px 12px; font-weight: 700; color: var(--forest);">Total</th>
+				  </tr>
+				</thead>
+				<tbody id="tabelKelasBody" style="font-size: 15px; color: var(--ink-2);">
+				  </tbody>
+			  </table>
+			</div>
+		  </div>
+		  <div class="reveal" style="background: var(--card); border-radius: var(--radius); border: 1px solid var(--line-soft); box-shadow: var(--shadow-sm); overflow: hidden; margin-top: 40px;">
+			<div style="padding: 24px 30px; border-bottom: 1px solid var(--line-soft); background: var(--paper);">
+			  <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--ink); margin: 0;">Kebijakan Resmi Sekolah</h3>
+			</div>
+			<div id="kebijakanContainer" style="padding: 30px; font-size: 15px; color: var(--ink-2); line-height: 1.6;">
+			  </div>
+		  </div>
+
+		</div>
+	  </section>
+	</div>
+	
+	
+
+  <!-- ============================================================
+       ALUMNI
+       ============================================================ -->
+  <div data-page="alumni" class="page-hidden" id="halamanAlumni">
+  <section class="section" id="alumni-list">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Alumni</span>
+        <h2>Jejak Alumni</h2>
+        <p>Kabar dan kesan dari lulusan sekolah yang kini berkarya di berbagai bidang.</p>
+      </div>
+      <div class="alumni-grid reveal" id="alumniGrid"></div>
+    </div>
+  </section>
+  </div><!-- /halamanAlumni (data-page="alumni") -->
+
+  <!-- ============================================================
+       HALAMAN STATIS — satu halaman generik dipakai untuk semua
+       baris di tabel halaman_statis (mis. Kebijakan Privasi),
+       kontennya diganti sesuai slug pada URL: #/statis/<slug>
+       ============================================================ -->
+  <div data-page="statis" class="page-hidden" id="halamanStatis">
+  <section class="section">
+    <div class="wrap" style="max-width:820px;">
+      <div class="section__head reveal">
+        <span class="eyebrow">Halaman</span>
+        <h2 id="statisJudul">Memuat…</h2>
+      </div>
+      <div class="prosa reveal" id="statisIsi"></div>
+    </div>
+  </section>
+  </div><!-- /halamanStatis (data-page="statis") -->
+
+  <!-- ============================================================
        STATISTIK
        ============================================================ -->
   <section class="stats section" id="statistik" data-page="beranda">
@@ -1297,10 +1549,10 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
     <div class="footer__col">
       <h5>Lainnya</h5>
       <ul>
-        <li><a href="#" class="soon">Portal Digital</a></li>
-        <li><a href="#/beranda/spmb">SPMB</a></li>
-        <li><a href="#" class="soon">Alumni</a></li>
-        <li><a href="#" class="soon">Kebijakan Privasi</a></li>
+        <li><a href="#/portal">Portal Digital</a></li>
+        <li><a href="#/spmb">SPMB</a></li>
+        <li><a href="#/alumni">Alumni</a></li>
+        <li><a href="#/statis/kebijakan-privasi">Kebijakan Privasi</a></li>
         <li><a href="#/layanan/hubungi-kami">Kontak</a></li>
       </ul>
     </div>
@@ -1318,10 +1570,28 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
 </button>
 
+<div class="portal-viewer" id="portalViewer">
+  <div class="portal-viewer__bar">
+    <span class="portal-viewer__title" id="portalViewerTitle">Portal</span>
+    <div class="portal-viewer__actions">
+      <a href="#" target="_blank" rel="noopener" id="portalViewerNewTab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg>
+        <span>Tab baru</span>
+      </a>
+      <button type="button" id="portalViewerClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+        <span>Tutup</span>
+      </button>
+    </div>
+  </div>
+  <div class="portal-viewer__body" id="portalViewerBody"></div>
+</div>
+
 <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
 </button>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 /* ============================================================
@@ -1356,7 +1626,11 @@ const ICONS = {
   sertifikat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="13" rx="1.5"/><path d="M7 7.5h10M7 11h6"/><path d="M9.5 16.5 8 21l4-2 4 2-1.5-4.5"/></svg>',
   file: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3.5h8l4.5 4.5V20a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z"/><path d="M14 3.5V8h4.5"/></svg>',
   unduh: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7.5 11.5 12 16l4.5-4.5"/><path d="M4.5 19.5h15"/></svg>',
-  chevron: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'
+  chevron: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',
+  portal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>',
+  tautan: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg>',
+  jendela: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="4.5" width="17" height="15" rx="1.8"/><path d="M3.5 8.5h17"/></svg>',
+  silang: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>'
 };
 
 /* ------------------------------------------------------------
@@ -1542,6 +1816,12 @@ async function muatPengumuman(){
         a.innerHTML = ICONS.panah + " Lihat lampiran";
         card.appendChild(a);
       }
+	  card.style.cursor = 'pointer';
+      card.addEventListener('click', (e) => {
+        if(e.target.tagName.toLowerCase() === 'a') return; // Cegah popup jika tombol lampiran diklik langsung
+        const aksi = p.lampiran_url ? `<a href="${p.lampiran_url}" target="_blank" class="btn btn--primary" style="width: 100%; justify-content: center;">${ICONS.unduh} Unduh Lampiran Resmi</a>` : '';
+        bukaModalUniversal(p.judul, p.isi, p.kategori + ' · ' + formatTanggal(p.tanggal), ICONS.pin, aksi);
+      });
       grid.appendChild(card);
     });
   }catch(e){
@@ -1723,7 +2003,9 @@ async function muatBerita(){
       return;
     }
     data.forEach(b=>{
-      const card = el('div','news-card');
+      const card = document.createElement('a');
+	  card.className = 'news-card';
+	  card.href = '#/baca/' + b.id;
       const thumb = el('div','news-card__thumb');
       if(b.thumbnail_url){
         const img = el('img'); img.src = b.thumbnail_url; img.alt = b.judul;
@@ -1780,6 +2062,12 @@ async function muatPengumumanFull(){
         a.innerHTML = ICONS.panah + " Lihat lampiran";
         card.appendChild(a);
       }
+	  card.style.cursor = 'pointer';
+      card.addEventListener('click', (e) => {
+        if(e.target.tagName.toLowerCase() === 'a') return; // Cegah popup jika tombol lampiran diklik langsung
+        const aksi = p.lampiran_url ? `<a href="${p.lampiran_url}" target="_blank" class="btn btn--primary" style="width: 100%; justify-content: center;">${ICONS.unduh} Unduh Lampiran Resmi</a>` : '';
+        bukaModalUniversal(p.judul, p.isi, p.kategori + ' · ' + formatTanggal(p.tanggal), ICONS.pin, aksi);
+      });
       grid.appendChild(card);
     });
   }catch(e){
@@ -1789,7 +2077,9 @@ async function muatPengumumanFull(){
 }
 
 function buatNewsCardFull(b){
-  const card = el('div','news-card');
+  const card = document.createElement('a');
+  card.className = 'news-card';
+  card.href = '#/baca/' + b.id;
   const thumb = el('div','news-card__thumb');
   if(b.thumbnail_url){
     const img = el('img'); img.src = b.thumbnail_url; img.alt = b.judul;
@@ -1932,6 +2222,80 @@ async function muatVideo(){
   }
 }
 
+/* ============================================================
+   LOGIKA POPUP & HALAMAN BACA
+   ============================================================ */
+
+// 1. Fungsi Pengendali Modal Universal
+function bukaModalUniversal(judul, isi, meta, ikonSvg, aksiHtml) {
+  document.getElementById('modalJudul').textContent = judul || '';
+  document.getElementById('modalIsi').textContent = isi || 'Tidak ada deskripsi yang ditambahkan.';
+  document.getElementById('modalMeta').innerHTML = meta || '';
+  document.getElementById('modalIkon').innerHTML = ikonSvg || '';
+  document.getElementById('modalAksi').innerHTML = aksiHtml || '';
+  
+  document.getElementById('modalUniversal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+document.getElementById('tutupModalBtn').addEventListener('click', () => {
+  document.getElementById('modalUniversal').classList.remove('open');
+  document.body.style.overflow = '';
+});
+
+// Fungsi khusus agar tombol di dalam popup bisa mengeksekusi bukaPortal()
+window.bukaPortalLanjutan = function(portalString) {
+  const portal = JSON.parse(decodeURIComponent(portalString));
+  document.getElementById('modalUniversal').classList.remove('open');
+  document.body.style.overflow = '';
+  bukaPortal(portal);
+}
+
+// 2. Fungsi Pengendali Halaman Baca Berita/Artikel
+async function muatHalamanBaca(id) {
+  const judulEl = document.getElementById('bacaJudul');
+  const isiEl = document.getElementById('bacaIsi');
+  const metaEl = document.getElementById('bacaMeta');
+  const penulisWrap = document.getElementById('bacaPenulisWrap');
+  const thumbWrap = document.getElementById('bacaThumbWrap');
+  const thumbImg = document.getElementById('bacaThumb');
+
+  judulEl.textContent = "Memuat data...";
+  isiEl.innerHTML = "";
+  thumbWrap.style.display = "none";
+  penulisWrap.innerHTML = "";
+  
+  if (!sb) return;
+
+  try {
+    const { data, error } = await sb.from('berita_artikel').select('*').eq('id', id).single();
+    if (error) throw error;
+
+    judulEl.textContent = data.judul;
+    const badge = `<span style="background: var(--ink); padding: 4px 10px; border-radius: 4px; color: #fff; margin-right: 10px;">${data.tipe === 'artikel' ? 'Artikel' : 'Berita'}</span>`;
+    metaEl.innerHTML = badge + formatTanggal(data.tanggal);
+    
+    if(data.penulis) {
+      penulisWrap.innerHTML = `
+        <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gold-2); color: var(--ink); display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: var(--font-display); font-size: 18px;">${data.penulis.charAt(0).toUpperCase()}</div>
+        <div>
+          <div style="font-size: 13px; color: var(--ink-soft);">Ditulis oleh</div>
+          <div style="font-weight: 700; color: var(--ink); font-size: 15px;">${data.penulis}</div>
+        </div>
+      `;
+    }
+
+    if (data.thumbnail_url) {
+      thumbImg.src = data.thumbnail_url;
+      thumbWrap.style.display = "block";
+    }
+    paragraf(isiEl, data.isi);
+  } catch (e) {
+    judulEl.textContent = "Data tidak ditemukan";
+    isiEl.innerHTML = "<p>Berita atau artikel yang Anda cari telah dihapus atau tidak tersedia.</p>";
+  }
+}
+
 /* lightbox foto & video (dipakai bersama) */
 function bukaLightboxFoto(url, caption){
   const box = document.getElementById('lightbox');
@@ -2056,6 +2420,13 @@ async function muatPrestasi(){
         body.appendChild(a);
       }
       card.appendChild(body);
+	  card.style.cursor = 'pointer';
+      card.addEventListener('click', (e) => {
+        if(e.target.tagName.toLowerCase() === 'a') return; 
+        const aksi = p.sertifikat_url ? `<a href="${p.sertifikat_url}" target="_blank" class="btn btn--primary" style="width: 100%; justify-content: center;">${ICONS.sertifikat} Lihat Sertifikat/Bukti</a>` : '';
+        const meta = (p.tingkat || 'Tingkat Sekolah') + (p.tahun ? ' · ' + p.tahun : '');
+        bukaModalUniversal(p.jenis_lomba || 'Prestasi', `Peraih Prestasi: ${p.nama_siswa}`, meta, ICONS.trofi, aksi);
+      });
       grid.appendChild(card);
     });
   }catch(e){
@@ -2097,6 +2468,11 @@ async function muatEkstrakurikuler(){
       if(x.jadwal){ const s = el('span',null); s.innerHTML = ICONS.jam + " " + x.jadwal; meta.appendChild(s); }
       if(meta.children.length) body.appendChild(meta);
       card.appendChild(body);
+	  card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const meta = (x.pembina ? `Pembina: ${x.pembina}` : '') + (x.jadwal ? ` | Jadwal: ${x.jadwal}` : '');
+        bukaModalUniversal(x.nama, x.deskripsi, meta, ICONS.user, '');
+      });
       grid.appendChild(card);
     });
   }catch(e){
@@ -2106,7 +2482,7 @@ async function muatEkstrakurikuler(){
 }
 
 /* ------------------------------------------------------------
-   6. SPMB (portal_digital kategori='spmb')
+   6. SPMB (portal_digital kategori='spmb') — ringkasan di Beranda
    ------------------------------------------------------------ */
 async function muatSPMB(){
   const wrap = document.getElementById('spmbCtaWrap');
@@ -2116,7 +2492,7 @@ async function muatSPMB(){
     return;
   }
   try{
-    const { data, error } = await sb.from('portal_digital').select('*').eq('kategori','spmb').eq('aktif', true).order('urutan', { ascending:true }).limit(1);
+    const { data, error } = await sb.from('portal_digital').select('*').eq('kategori','spmb').eq('aktif', true).order('urutan', { ascending:true });
     if(error) throw error;
     if(!data || data.length === 0){
       desc.textContent = "Informasi SPMB akan segera dibuka. Admin dapat mengaktifkannya kapan saja dari dashboard.";
@@ -2125,13 +2501,291 @@ async function muatSPMB(){
     const portal = data[0];
     document.getElementById('spmbTitle').textContent = portal.nama_portal || "Penerimaan Peserta Didik Baru";
     desc.textContent = portal.deskripsi || "Klik tombol di bawah untuk membuka halaman pendaftaran.";
-    const a = el('a','btn btn--primary');
-    a.href = portal.iframe_url; a.target = "_blank"; a.rel = "noopener";
+    const a = el('button','btn btn--primary');
+    a.type = "button";
     a.innerHTML = "Buka Pendaftaran SPMB " + ICONS.panah;
+    a.addEventListener('click', ()=> bukaPortal(portal));
     wrap.appendChild(a);
+    if(data.length > 1){
+      const semua = el('a','link-lihat-semua'); semua.href = "#/spmb";
+      semua.style.color = "rgba(255,255,255,.75)"; semua.style.marginTop = "14px";
+      semua.innerHTML = "Lihat semua jalur SPMB " + ICONS.panah;
+      wrap.appendChild(semua);
+    }
   }catch(e){
     console.error("Gagal memuat portal_digital (SPMB):", e);
     desc.textContent = "Informasi SPMB belum bisa dimuat.";
+  }
+
+}
+
+/* ------------------------------------------------------------
+   6b. PORTAL DIGITAL & SPMB — halaman penuh (kartu + viewer)
+   ------------------------------------------------------------ */
+function renderPortalCard(portal){
+  const card = el('button','portal-card');
+  card.type = "button";
+  const icon = el('div','portal-card__icon');
+  if(portal.icon){ icon.textContent = portal.icon; } else { icon.innerHTML = ICONS.portal; }
+  card.appendChild(icon);
+  card.appendChild(el('h4', null, portal.nama_portal));
+  if(portal.deskripsi) card.appendChild(el('p', null, portal.deskripsi));
+
+  const foot = el('div','portal-card__foot');
+  const mode = el('span','portal-card__mode');
+  const tabBaru = portal.tipe_buka === 'tab_baru';
+  mode.innerHTML = (tabBaru ? ICONS.tautan : ICONS.jendela) + "<span>" + (tabBaru ? "Tab baru" : "Tampil di sini") + "</span>";
+  foot.appendChild(mode);
+  const go = el('span','portal-card__go'); go.innerHTML = ICONS.panah;
+  foot.appendChild(go);
+  card.appendChild(foot);
+
+  card.addEventListener('click', () => {
+    // encodeURIComponent agar tidak bermasalah dengan tanda kutip di atribut onClick HTML
+    const portalData = encodeURIComponent(JSON.stringify(portal));
+    const aksi = `<button onclick="bukaPortalLanjutan('${portalData}')" class="btn btn--primary" style="width: 100%; justify-content: center;">Lanjutkan ke Portal ${ICONS.panah}</button>`;
+    
+    let instruksi = portal.deskripsi || 'Silakan klik tombol di bawah ini untuk membuka dan mengakses portal sistem digital bersangkutan.';
+    bukaModalUniversal(portal.nama_portal, instruksi, portal.kategori === 'spmb' ? 'Penerimaan Siswa Baru' : 'Layanan Sistem Digital', portal.icon || ICONS.portal, aksi);
+  });
+  return card;
+}
+
+async function muatPortalKategori(kategori, gridId, pesanKosong){
+  const grid = document.getElementById(gridId);
+  if(!grid) return;
+  grid.innerHTML = "";
+  if(!sb){
+    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan daftar portal.'));
+    return;
+  }
+  try{
+    const { data, error } = await sb.from('portal_digital').select('*').eq('kategori', kategori).eq('aktif', true).order('urutan', { ascending:true });
+    if(error) throw error;
+    if(!data || data.length === 0){
+      grid.appendChild(el('div','empty-note', pesanKosong));
+      return;
+    }
+    data.forEach(p=> grid.appendChild(renderPortalCard(p)));
+  }catch(e){
+    console.error("Gagal memuat portal_digital ("+kategori+"):", e);
+    tampilkanErrorRingan(grid, "Daftar portal belum bisa dimuat. Periksa konfigurasi Supabase.");
+  }
+}
+function muatPortalDigital(){
+  muatPortalKategori('portal_digital', 'portalDigitalGrid', 'Belum ada portal digital yang ditambahkan admin.');
+}
+function muatSPMBGrid(){
+  muatPortalKategori('spmb', 'spmbGrid', 'Belum ada jalur pendaftaran SPMB yang dibuka admin.');
+}
+
+/* Viewer layar penuh: dipakai bersama oleh Portal Digital & SPMB.
+   tipe_buka='tab_baru' -> buka tab baru; tipe_buka='iframe' -> tampil
+   langsung di halaman ini lewat <iframe>. */
+function bukaPortal(portal){
+  if(!portal || !portal.iframe_url) return;
+  if(portal.tipe_buka === 'tab_baru'){
+    window.open(portal.iframe_url, '_blank', 'noopener');
+    return;
+  }
+  const viewer = document.getElementById('portalViewer');
+  const body = document.getElementById('portalViewerBody');
+  const title = document.getElementById('portalViewerTitle');
+  const newTab = document.getElementById('portalViewerNewTab');
+
+  title.textContent = portal.nama_portal || "Portal";
+  newTab.href = portal.iframe_url;
+
+  body.innerHTML = "";
+  const loading = el('div','portal-viewer__loading');
+  loading.textContent = "Memuat portal…";
+  body.appendChild(loading);
+
+  const iframe = document.createElement('iframe');
+  iframe.title = portal.nama_portal || "Portal";
+  iframe.addEventListener('load', ()=> loading.remove());
+  iframe.src = portal.iframe_url;
+  body.appendChild(iframe);
+
+  viewer.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function tutupPortalViewer(){
+  const viewer = document.getElementById('portalViewer');
+  if(!viewer.classList.contains('open')) return;
+  viewer.classList.remove('open');
+  document.getElementById('portalViewerBody').innerHTML = "";
+  document.body.style.overflow = '';
+}
+
+/* ------------------------------------------------------------
+   6c. ALUMNI
+   ------------------------------------------------------------ */
+async function muatAlumni(){
+  const grid = document.getElementById('alumniGrid');
+  if(!grid) return;
+  grid.innerHTML = "";
+  if(!sb){
+    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan data alumni.'));
+    return;
+  }
+  try{
+    const { data, error } = await sb.from('alumni').select('*').eq('published', true).order('tahun_lulus', { ascending:false });
+    if(error) throw error;
+    if(!data || data.length === 0){
+      grid.appendChild(el('div','empty-note','Belum ada data alumni yang ditambahkan admin.'));
+      return;
+    }
+    data.forEach(a=>{
+      const card = el('div','alumni-card');
+      const head = el('div','alumni-card__head');
+      const foto = el('div','alumni-card__foto');
+      if(a.foto_url){
+        const img = el('img'); img.src = a.foto_url; img.alt = a.nama;
+        foto.appendChild(img);
+      } else {
+        foto.textContent = (a.nama || "?").trim().charAt(0).toUpperCase();
+      }
+      head.appendChild(foto);
+      const info = el('div');
+      info.appendChild(el('div','nama', a.nama));
+      const metaTeks = [a.profesi, a.tahun_lulus ? ('Angkatan ' + a.tahun_lulus) : null].filter(Boolean).join(' · ');
+      if(metaTeks) info.appendChild(el('div','meta', metaTeks));
+      head.appendChild(info);
+      card.appendChild(head);
+      if(a.testimoni) card.appendChild(el('p','alumni-card__testimoni', '\u201C' + a.testimoni + '\u201D'));
+      grid.appendChild(card);
+    });
+  }catch(e){
+    console.error("Gagal memuat alumni:", e);
+    tampilkanErrorRingan(grid, "Data alumni belum bisa dimuat. Periksa konfigurasi Supabase.");
+  }
+}
+
+/* ------------------------------------------------------------
+   6d. HALAMAN STATIS — generik, dipakai lewat #/statis/<slug>
+   (mis. #/statis/kebijakan-privasi). Tambah baris baru di tabel
+   halaman_statis dari admin dashboard, tautkan slug-nya dari mana
+   pun tanpa perlu kode baru.
+   ------------------------------------------------------------ */
+async function muatHalamanStatis(slug){
+  const judulEl = document.getElementById('statisJudul');
+  const isiEl = document.getElementById('statisIsi');
+  if(!judulEl || !isiEl) return;
+  judulEl.textContent = "Memuat…";
+  isiEl.innerHTML = "";
+  if(!sb){
+    judulEl.textContent = "Halaman Belum Tersedia";
+    isiEl.appendChild(el('p', null, 'Terhubungkan ke Supabase untuk menampilkan halaman ini.'));
+    return;
+  }
+  try{
+    const { data, error } = await sb.from('halaman_statis').select('*').eq('slug', slug).single();
+    if(error) throw error;
+    judulEl.textContent = data.judul || "Halaman";
+    const namaSaatIni = document.getElementById('navNamaSekolah').textContent || 'Website Sekolah';
+    document.title = (data.judul || 'Halaman') + " — " + namaSaatIni;
+    const paragraf = (data.isi || '').split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean);
+    if(paragraf.length === 0){
+      isiEl.appendChild(el('p', null, 'Konten halaman ini belum diisi admin.'));
+    } else {
+      paragraf.forEach(p=> isiEl.appendChild(el('p', null, p)));
+    }
+  }catch(e){
+    console.error("Gagal memuat halaman statis ("+slug+"):", e);
+    judulEl.textContent = "Halaman Tidak Ditemukan";
+    isiEl.appendChild(el('p', null, 'Halaman ini belum tersedia atau belum dibuat admin.'));
+  }
+}
+
+async function muatHalamanStatistikLengkap() {
+  const elPageViews = document.getElementById('totalPageViews');
+  if (!sb) return;
+
+  try {
+    // 1. Ambil Total Kunjungan Website
+    const { data: viewsData } = await sb.from('page_views').select('jumlah');
+    if (viewsData) {
+      elPageViews.textContent = viewsData.reduce((s, r) => s + Number(r.jumlah), 0).toLocaleString('id-ID');
+    }
+
+    // 2. Ambil Data Demografi (Guru & Staf)
+    const { data: stat } = await sb.from('v_statistik_ringkas').select('*').single();
+    
+    // 3. Ambil Data Spesifik Per Kelas
+    const { data: kelasData } = await sb.from('data_kelas').select('nama_kelas, jumlah_siswa_laki, jumlah_siswa_perempuan').order('nama_kelas', { ascending: true });
+
+    // --- RENDER TABEL GURU & STAF ---
+    const tbodyPegawai = document.getElementById('tabelPegawaiBody');
+    if (tbodyPegawai && stat) {
+      const totalGuru = (stat.guru_laki || 0) + (stat.guru_perempuan || 0);
+      const totalStaf = (stat.staf_laki || 0) + (stat.staf_perempuan || 0);
+      
+      tbodyPegawai.innerHTML = `
+        <tr style="border-bottom: 1px solid var(--line-soft); background: transparent;">
+          <td style="padding: 16px 12px; font-weight: 600; color: var(--ink);">Guru</td>
+          <td style="padding: 16px 12px;">${stat.guru_laki || 0}</td>
+          <td style="padding: 16px 12px;">${stat.guru_perempuan || 0}</td>
+          <td style="padding: 16px 12px; font-weight: 700; color: var(--forest);">${totalGuru}</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--line-soft); background: rgba(22, 35, 63, 0.02);">
+          <td style="padding: 16px 12px; font-weight: 600; color: var(--ink);">Tenaga Kependidikan (Staf)</td>
+          <td style="padding: 16px 12px;">${stat.staf_laki || 0}</td>
+          <td style="padding: 16px 12px;">${stat.staf_perempuan || 0}</td>
+          <td style="padding: 16px 12px; font-weight: 700; color: var(--forest);">${totalStaf}</td>
+        </tr>
+      `;
+    }
+
+    // --- RENDER TABEL SISWA PER KELAS ---
+    const tbodyKelas = document.getElementById('tabelKelasBody');
+    if (tbodyKelas && kelasData && kelasData.length > 0) {
+      tbodyKelas.innerHTML = '';
+      kelasData.forEach((k, index) => {
+        const total = (k.jumlah_siswa_laki || 0) + (k.jumlah_siswa_perempuan || 0);
+        const bgRow = index % 2 === 0 ? 'background: transparent;' : 'background: rgba(22, 35, 63, 0.02);';
+        
+        const tr = document.createElement('tr');
+        tr.style.cssText = `border-bottom: 1px solid var(--line-soft); ${bgRow}`;
+        tr.innerHTML = `
+          <td style="padding: 16px 12px; font-weight: 600; color: var(--ink);">${k.nama_kelas}</td>
+          <td style="padding: 16px 12px;">${k.jumlah_siswa_laki || 0}</td>
+          <td style="padding: 16px 12px;">${k.jumlah_siswa_perempuan || 0}</td>
+          <td style="padding: 16px 12px; font-weight: 700; color: var(--forest);">${total}</td>
+        `;
+        tbodyKelas.appendChild(tr);
+      });
+    } else if (tbodyKelas) {
+      tbodyKelas.innerHTML = `<tr><td colspan="4" style="padding: 30px; text-align: center; color: var(--ink-soft); font-style: italic;">Belum ada data sebaran kelas saat ini.</td></tr>`;
+    }
+	
+	// --- RENDER DATA KEBIJAKAN SEKOLAH (HALAMAN STATIS) ---
+    const kebijakanContainer = document.getElementById('kebijakanContainer');
+    if (kebijakanContainer) {
+      // Mengambil seluruh data kebijakan dari tabel halaman_statis
+      const { data: kebijakanData } = await sb.from('halaman_statis').select('judul, isi');
+      
+      if (kebijakanData && kebijakanData.length > 0) {
+        kebijakanContainer.innerHTML = kebijakanData.map(k => `
+          <div style="margin-bottom: 24px; border-bottom: 1px dashed var(--line-soft); padding-bottom: 20px;">
+            <h4 style="font-family: var(--font-display); font-size: 18px; color: var(--ink); margin-top: 0; margin-bottom: 12px;">${k.judul}</h4>
+            <p style="margin: 0; white-space: pre-line;">${k.isi || 'Konten kebijakan belum diisi oleh admin.'}</p>
+          </div>
+        `).join('');
+        
+        // Merapikan desain elemen terakhir agar tidak ada garis pembatas ganda
+        if (kebijakanContainer.lastElementChild) {
+          kebijakanContainer.lastElementChild.style.borderBottom = 'none';
+          kebijakanContainer.lastElementChild.style.paddingBottom = '0';
+          kebijakanContainer.lastElementChild.style.marginBottom = '0';
+        }
+      } else {
+        kebijakanContainer.innerHTML = `<p style="color: var(--ink-soft); font-style: italic; margin: 0;">Belum ada data kebijakan resmi saat ini.</p>`;
+      }
+    }
+
+  } catch (e) { 
+    console.error("Gagal memuat statistik lengkap:", e); 
   }
 }
 
@@ -2466,7 +3120,7 @@ async function muatHubungiKami(){
    Elemen ber-atribut [data-page] disembunyikan/ditampilkan sesuai
    halaman yang aktif; hanya SATU halaman yang terlihat pada satu waktu.
    ------------------------------------------------------------ */
-const RUTE_VALID = ['beranda', 'profil', 'informasi', 'kesiswaan', 'layanan'];
+const RUTE_VALID = ['beranda', 'profil', 'informasi', 'kesiswaan', 'layanan', 'portal', 'spmb', 'alumni', 'statis', 'statistik', 'baca'];
 
 function baca_hash(){
   const bersih = (location.hash || '').replace(/^#\/?/, '');
@@ -2479,6 +3133,8 @@ function baca_hash(){
 function terapkan_rute(){
   const { rute, anchor } = baca_hash();
 
+  if(typeof tutupPortalViewer === 'function') tutupPortalViewer();
+
   document.querySelectorAll('[data-page]').forEach(elm=>{
     elm.classList.toggle('page-hidden', elm.dataset.page !== rute);
   });
@@ -2488,8 +3144,15 @@ function terapkan_rute(){
   });
 
   const namaSaatIni = document.getElementById('navNamaSekolah').textContent || 'Website Sekolah';
-  const judulRute = { profil:'Profil Sekolah — ', informasi:'Informasi & Media — ', kesiswaan:'Kesiswaan — ', layanan:'Layanan Publik — ', beranda:'Beranda — ' };
+  const judulRute = { profil:'Profil Sekolah — ', informasi:'Informasi & Media — ', kesiswaan:'Kesiswaan — ', layanan:'Layanan Publik — ', portal:'Portal Digital — ', spmb:'SPMB — ', alumni:'Alumni — ', statis:'Halaman — ', beranda:'Beranda — ' };
   document.title = (judulRute[rute] || 'Beranda — ') + namaSaatIni;
+
+  if(rute === 'statis' && anchor){ muatHalamanStatis(anchor); }
+  
+  // Trigger ambil data spesifik jika rute adalah halaman baca
+  if (rute === 'baca' && anchor) {
+    muatHalamanBaca(anchor);
+  }
 
   const mobileMenu = document.getElementById('mobileMenu');
   const burger = document.getElementById('burgerBtn');
@@ -2565,7 +3228,11 @@ function initUI(){
   document.getElementById('lightbox').addEventListener('click', (e)=>{
     if(e.target.id === 'lightbox') tutupLightbox();
   });
-  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') tutupLightbox(); });
+  // portal viewer: tombol tutup + Escape
+  document.getElementById('portalViewerClose').addEventListener('click', tutupPortalViewer);
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape'){ tutupLightbox(); tutupPortalViewer(); }
+  });
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const reveals = document.querySelectorAll('.reveal');
@@ -2607,6 +3274,9 @@ function initData(){
     muatTestimoni();
     muatFAQ();
     muatHubungiKami();
+    muatPortalDigital();
+    muatSPMBGrid();
+    muatAlumni();
     return;
   }
   muatIdentitas();
@@ -2630,6 +3300,10 @@ function initData(){
   muatTestimoni();
   muatFAQ();
   muatHubungiKami();
+  muatPortalDigital();
+  muatSPMBGrid();
+  muatAlumni();
+  muatHalamanStatistikLengkap();
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
