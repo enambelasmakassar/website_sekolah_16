@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#16233F">
 <meta name="description" content="Website resmi sekolah — profil, pengumuman, berita, statistik, dan informasi SPMB.">
-<title>Beranda — Website Sekolah</title>
+<title>SMPN 16 Makassar</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316233F'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='32' fill='%23E0AE52' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,13 +150,14 @@ header.site{
 .nav__brand-text{min-width:0;}
 .nav__brand-text .nama{
   font-family:var(--font-display);font-size:16.5px;font-weight:700;color:#fff;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:280px;display:block;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:380px;display:block;
 }
 .nav__brand-text .npsn{font-family:var(--font-mono);font-size:10.5px;color:rgba(255,255,255,0.55);letter-spacing:.05em;}
 .nav__links{display:flex;align-items:center;gap:2px;}
 .nav__links a, .nav__links button.navlink{
-  padding:9px 14px;border-radius:999px;font-size:14px;font-weight:600;color:rgba(255,255,255,0.78);
+  padding:8px 10px;border-radius:999px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.78);
   display:inline-flex;align-items:center;gap:6px;transition:background .2s ease,color .2s ease;
+  white-space:nowrap;
 }
 .nav__links a:hover{background:rgba(255,255,255,0.08);color:#fff;}
 .nav__links a.active{color:var(--ink);background:var(--gold-2);}
@@ -369,8 +370,11 @@ header.site{
    ============================================================ */
 footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
 .footer__top{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:36px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.08);}
-@media(max-width:980px){.footer__top{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:560px){.footer__top{grid-template-columns:1fr;}}
+@media(max-width:980px){.footer__top{grid-template-columns:repeat(2,1fr);gap:28px 24px;}}
+@media(max-width:560px){
+  .footer__top{grid-template-columns:repeat(2,1fr);gap:26px 20px;}
+  .footer__brand{grid-column:1/-1;}
+}
 .footer__brand{display:flex;gap:12px;}
 .footer__brand p{font-size:13px;margin-top:10px;color:rgba(255,255,255,.5);max-width:260px;}
 .footer__brand .nama{font-family:var(--font-display);font-size:18px;color:#fff;font-weight:700;}
@@ -382,6 +386,9 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
 .footer ul li a.soon{opacity:.45;cursor:not-allowed;}
 .footer ul li a.soon:hover{color:rgba(255,255,255,.62);}
 .footer__bottom{display:flex;justify-content:space-between;align-items:center;padding:22px 0 30px;font-size:12.5px;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:10px;}
+@media(max-width:560px){
+  .footer__bottom{justify-content:center;text-align:center;flex-direction:column;gap:6px;}
+}
 
 .back-to-top{
   position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;
@@ -833,9 +840,8 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
 <a href="#konten" class="skip-link">Lompat ke konten utama</a>
 
 <div class="setup-banner" id="setupBanner" hidden>
-  ⚠️ Website belum terhubung ke Supabase. Buka file <code>index.html</code>, cari bagian
-  <code>KONFIGURASI SUPABASE</code> di dalam kode, lalu isi <code>SUPABASE_URL</code> dan
-  <code>SUPABASE_ANON_KEY</code> sesuai proyek Anda.
+  ⚠️ Website belum terhubung ke database. Silakan hubungi pengelola teknis website
+  untuk menyelesaikan konfigurasi.
 </div>
 
 <header class="site">
@@ -861,7 +867,6 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
       <a href="#/statistik" data-route="statistik">Statistik</a>
     </div>
     <div class="nav__cta">
-      <span class="nav__admin">Login Admin · Segera</span>
       <button class="nav__burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -953,7 +958,7 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
         <div id="heroSliderWrap">
           <div class="hero__media-empty">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10.5 12 4l9 6.5"/><path d="M5 9.5V20h14V9.5"/><path d="M9 20v-6h6v6"/></svg>
-            <p>Logo sekolah akan tampil di sini setelah admin mengisi <code>logo_sekolah_url</code> pada tabel identitas_sekolah.</p>
+            <p>Logo sekolah akan tampil di sini setelah admin mengunggah logo resmi sekolah.</p>
           </div>
         </div>
       </div>
@@ -985,7 +990,7 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
         <div class="sambutan__photo" id="sambutanFotoWrap">
           <div class="sambutan__photo-empty">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c1-4.4 4-6.8 7.5-6.8s6.5 2.4 7.5 6.8"/></svg>
-            <p>Foto kepala sekolah akan tampil di sini setelah admin mengisi <code>foto_url</code> pada data sambutan.</p>
+            <p>Foto kepala sekolah akan tampil di sini setelah admin mengunggahnya.</p>
           </div>
         </div>
         <div class="sambutan__body">
@@ -1015,7 +1020,7 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
         <div class="sejarah__photo" id="sejarahFotoWrap">
           <div class="sejarah__photo-empty">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10.5 12 4l9 6.5"/><path d="M5 9.5V20h14V9.5"/><path d="M9 20v-6h6v6"/></svg>
-            <p>Foto sejarah/gedung sekolah akan tampil di sini setelah admin mengisi <code>foto_url</code>.</p>
+            <p>Foto sejarah/gedung sekolah akan tampil di sini setelah admin mengunggahnya.</p>
           </div>
         </div>
         <div class="sejarah__body">
@@ -1318,7 +1323,7 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
     <div class="wrap">
       <div class="section__head reveal">
         <span class="eyebrow">SPMB</span>
-        <h2>Penerimaan Peserta Didik Baru</h2>
+        <h2>Sistem Penerimaan Murid Baru</h2>
         <p>Jalur pendaftaran yang sedang dibuka sekolah. Pilih salah satu jalur untuk memulai pendaftaran.</p>
       </div>
       <div class="portal-grid reveal" id="spmbGrid"></div>
@@ -1489,7 +1494,7 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
       <div class="cta-split">
         <div class="cta-panel cta-panel--spmb" id="spmb">
           <span class="eyebrow" style="color:var(--gold-2);">SPMB</span>
-          <h3 id="spmbTitle">Penerimaan Peserta Didik Baru</h3>
+          <h3 id="spmbTitle">Sistem Penerimaan Murid Baru</h3>
           <p id="spmbDesc">Memuat informasi pendaftaran…</p>
           <div id="spmbCtaWrap"></div>
         </div>
@@ -1559,7 +1564,7 @@ footer.site{background:var(--ink);color:rgba(255,255,255,.7);padding-top:70px;}
   </div>
   <div class="wrap footer__bottom">
     <span id="footerCopyright">© <span id="tahunSekarang"></span> <span id="footerCopyrightNama">Website Sekolah</span>. Semua hak dilindungi.</span>
-    <span>Dibangun di atas Supabase &amp; GitHub Pages</span>
+    <span>Powered By Mappaguru Online</span>
   </div>
 </footer>
 
@@ -1793,7 +1798,7 @@ async function muatPengumuman(){
   const grid = document.getElementById('pengumumanGrid');
   grid.innerHTML = "";
   if(!sb){
-    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan pengumuman terbaru di sini.'));
+    grid.appendChild(el('div','empty-note','Belum ada pengumuman yang bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -1826,7 +1831,7 @@ async function muatPengumuman(){
     });
   }catch(e){
     console.error("Gagal memuat pengumuman:", e);
-    tampilkanErrorRingan(grid, "Pengumuman belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(grid, "Pengumuman belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -1845,11 +1850,11 @@ async function muatProfilKonten(){
   if(!sb){
     [elSambutanIsi, elSejarahIsi].forEach(c=>{
       c.innerHTML = "";
-      c.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan konten ini.'));
+      c.appendChild(el('div','empty-note','Konten ini belum bisa ditampilkan saat ini.'));
     });
-    elVisiIsi.textContent = "Terhubungkan ke Supabase untuk menampilkan visi sekolah.";
+    elVisiIsi.textContent = "Visi sekolah belum bisa ditampilkan saat ini.";
     elMisiList.innerHTML = "";
-    elMisiList.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan misi sekolah.'));
+    elMisiList.appendChild(el('div','empty-note','Misi sekolah belum bisa ditampilkan saat ini.'));
     return;
   }
 
@@ -1906,7 +1911,7 @@ async function muatProfilKonten(){
   }catch(e){
     console.error("Gagal memuat profil_konten:", e);
     elSambutanIsi.innerHTML = "";
-    tampilkanErrorRingan(elSambutanIsi, "Konten profil belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(elSambutanIsi, "Konten profil belum bisa dimuat. Silakan coba beberapa saat lagi.");
     elSejarahIsi.innerHTML = "";
     tampilkanErrorRingan(elSejarahIsi, "Konten profil belum bisa dimuat.");
     elVisiIsi.textContent = "Visi belum bisa dimuat.";
@@ -1919,7 +1924,7 @@ async function muatStruktur(){
   const grid = document.getElementById('strukturGrid');
   grid.innerHTML = "";
   if(!sb){
-    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan struktur organisasi.'));
+    grid.appendChild(el('div','empty-note','Struktur organisasi belum bisa ditampilkan saat ini'));
     return;
   }
   try{
@@ -1945,7 +1950,7 @@ async function muatStruktur(){
     });
   }catch(e){
     console.error("Gagal memuat struktur_organisasi:", e);
-    tampilkanErrorRingan(grid, "Struktur organisasi belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(grid, "Struktur organisasi belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -1953,7 +1958,7 @@ async function muatFasilitas(){
   const grid = document.getElementById('fasilitasGrid');
   grid.innerHTML = "";
   if(!sb){
-    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan fasilitas sekolah.'));
+    grid.appendChild(el('div','empty-note','Data fasilitas belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -1981,7 +1986,7 @@ async function muatFasilitas(){
     });
   }catch(e){
     console.error("Gagal memuat fasilitas:", e);
-    tampilkanErrorRingan(grid, "Data fasilitas belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(grid, "Data fasilitas belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -1992,7 +1997,7 @@ async function muatBerita(){
   const list = document.getElementById('beritaList');
   list.innerHTML = "";
   if(!sb){
-    list.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan berita &amp; artikel terbaru.'));
+    list.appendChild(el('div','empty-note','Belum ada berita atau artikel yang bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2027,7 +2032,7 @@ async function muatBerita(){
     });
   }catch(e){
     console.error("Gagal memuat berita_artikel:", e);
-    tampilkanErrorRingan(list, "Berita belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(list, "Berita belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -2039,7 +2044,7 @@ async function muatPengumumanFull(){
   if(!grid) return;
   grid.innerHTML = "";
   if(!sb){
-    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan seluruh pengumuman.'));
+    grid.appendChild(el('div','empty-note','Belum ada pengumuman yang bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2072,7 +2077,7 @@ async function muatPengumumanFull(){
     });
   }catch(e){
     console.error("Gagal memuat seluruh pengumuman:", e);
-    tampilkanErrorRingan(grid, "Pengumuman belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(grid, "Pengumuman belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -2105,20 +2110,20 @@ async function muatBeritaArtikelFull(tipe, containerId, labelKosong){
   if(!list) return;
   list.innerHTML = "";
   if(!sb){
-    list.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan '+labelKosong+'.'));
+    list.appendChild(el('div','empty-note','Belum ada '+labelKosong+' yang bisa ditampilkan saat ini.'));
     return;
   }
   try{
     const { data, error } = await sb.from('berita_artikel').select('*').eq('published', true).eq('tipe', tipe).order('tanggal', { ascending:false });
     if(error) throw error;
     if(!data || data.length === 0){
-      list.appendChild(el('div','empty-note','Belum ada '+labelKosong+' yang dipublikasikan.'));
+      list.appendChild(el('div','empty-note','Belum ada +labelKosong+ yang bisa ditampilkan saat ini.'));
       return;
     }
     data.forEach(b=> list.appendChild(buatNewsCardFull(b)));
   }catch(e){
     console.error("Gagal memuat "+tipe+":", e);
-    tampilkanErrorRingan(list, "Konten belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(list, "Konten belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -2127,7 +2132,7 @@ async function muatGaleri(){
   if(!wrap) return;
   wrap.innerHTML = "";
   if(!sb){
-    wrap.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan galeri foto.'));
+    wrap.appendChild(el('div','empty-note','Galeri foto belum bisa ditampilkan saat ini..'));
     return;
   }
   try{
@@ -2165,7 +2170,7 @@ async function muatGaleri(){
     }
   }catch(e){
     console.error("Gagal memuat galeri:", e);
-    tampilkanErrorRingan(wrap, "Galeri foto belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(wrap, "Galeri foto belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -2186,7 +2191,7 @@ async function muatVideo(){
   if(!grid) return;
   grid.innerHTML = "";
   if(!sb){
-    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan video sekolah.'));
+    grid.appendChild(el('div','empty-note','Video belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2218,7 +2223,7 @@ async function muatVideo(){
     });
   }catch(e){
     console.error("Gagal memuat video:", e);
-    tampilkanErrorRingan(grid, "Video belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(grid, "Video belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -2350,7 +2355,7 @@ async function muatAgenda(){
   if(!wrap) return;
   wrap.innerHTML = "";
   if(!sb){
-    wrap.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan agenda sekolah.'));
+    wrap.appendChild(el('div','empty-note','Agenda sekolah belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2380,7 +2385,7 @@ async function muatAgenda(){
     });
   }catch(e){
     console.error("Gagal memuat agenda:", e);
-    tampilkanErrorRingan(wrap, "Agenda belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(wrap, "Agenda belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -2389,7 +2394,7 @@ async function muatPrestasi(){
   if(!grid) return;
   grid.innerHTML = "";
   if(!sb){
-    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan prestasi siswa.'));
+    grid.appendChild(el('div','empty-note','Data prestasi belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2431,7 +2436,7 @@ async function muatPrestasi(){
     });
   }catch(e){
     console.error("Gagal memuat prestasi:", e);
-    tampilkanErrorRingan(grid, "Data prestasi belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(grid, "Data prestasi belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -2440,7 +2445,7 @@ async function muatEkstrakurikuler(){
   if(!grid) return;
   grid.innerHTML = "";
   if(!sb){
-    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan daftar ekstrakurikuler.'));
+    grid.appendChild(el('div','empty-note','Daftar ekstrakurikuler belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2477,7 +2482,7 @@ async function muatEkstrakurikuler(){
     });
   }catch(e){
     console.error("Gagal memuat ekstrakurikuler:", e);
-    tampilkanErrorRingan(grid, "Data ekstrakurikuler belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(grid, "Data ekstrakurikuler belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -2488,18 +2493,18 @@ async function muatSPMB(){
   const wrap = document.getElementById('spmbCtaWrap');
   const desc = document.getElementById('spmbDesc');
   if(!sb){
-    desc.textContent = "Terhubungkan ke Supabase untuk menampilkan tautan pendaftaran SPMB.";
+    desc.textContent = "Informasi SPMB belum bisa ditampilkan saat ini.";
     return;
   }
   try{
     const { data, error } = await sb.from('portal_digital').select('*').eq('kategori','spmb').eq('aktif', true).order('urutan', { ascending:true });
     if(error) throw error;
     if(!data || data.length === 0){
-      desc.textContent = "Informasi SPMB akan segera dibuka. Admin dapat mengaktifkannya kapan saja dari dashboard.";
+      desc.textContent = "Informasi terkait Sistem Penerimaan Murid Baru (SPMB).";
       return;
     }
     const portal = data[0];
-    document.getElementById('spmbTitle').textContent = portal.nama_portal || "Penerimaan Peserta Didik Baru";
+    document.getElementById('spmbTitle').textContent = portal.nama_portal || "Sistem Penerimaan Murid Baru";
     desc.textContent = portal.deskripsi || "Klik tombol di bawah untuk membuka halaman pendaftaran.";
     const a = el('button','btn btn--primary');
     a.type = "button";
@@ -2556,7 +2561,7 @@ async function muatPortalKategori(kategori, gridId, pesanKosong){
   if(!grid) return;
   grid.innerHTML = "";
   if(!sb){
-    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan daftar portal.'));
+    grid.appendChild(el('div','empty-note','Daftar portal belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2569,7 +2574,7 @@ async function muatPortalKategori(kategori, gridId, pesanKosong){
     data.forEach(p=> grid.appendChild(renderPortalCard(p)));
   }catch(e){
     console.error("Gagal memuat portal_digital ("+kategori+"):", e);
-    tampilkanErrorRingan(grid, "Daftar portal belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(grid, "Daftar portal belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 function muatPortalDigital(){
@@ -2626,7 +2631,7 @@ async function muatAlumni(){
   if(!grid) return;
   grid.innerHTML = "";
   if(!sb){
-    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan data alumni.'));
+    grid.appendChild(el('div','empty-note','Data alumni belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2658,7 +2663,7 @@ async function muatAlumni(){
     });
   }catch(e){
     console.error("Gagal memuat alumni:", e);
-    tampilkanErrorRingan(grid, "Data alumni belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(grid, "Data alumni belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -2676,7 +2681,7 @@ async function muatHalamanStatis(slug){
   isiEl.innerHTML = "";
   if(!sb){
     judulEl.textContent = "Halaman Belum Tersedia";
-    isiEl.appendChild(el('p', null, 'Terhubungkan ke Supabase untuk menampilkan halaman ini.'));
+    isiEl.appendChild(el('p', null, 'Halaman ini belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2796,7 +2801,7 @@ async function muatKontak(){
   const list = document.getElementById('kontakList');
   const mapWrap = document.getElementById('mapWrap');
   if(!sb){
-    list.appendChild(el('li',null,'Terhubungkan ke Supabase untuk menampilkan data kontak.'));
+    list.appendChild(el('li',null,'Data kontak belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2892,7 +2897,7 @@ async function muatUnduhan(){
   const filterWrap = document.getElementById('unduhanFilter');
   wrap.innerHTML = ""; filterWrap.innerHTML = "";
   if(!sb){
-    wrap.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan media unduhan.'));
+    wrap.appendChild(el('div','empty-note','Media unduhan belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2918,7 +2923,7 @@ async function muatUnduhan(){
     renderUnduhanList('__semua__');
   }catch(e){
     console.error("Gagal memuat unduhan:", e);
-    tampilkanErrorRingan(wrap, "Media unduhan belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(wrap, "Media unduhan belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -2928,7 +2933,7 @@ async function muatTestimoni(){
   if(!grid) return;
   grid.innerHTML = "";
   if(!sb){
-    grid.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan testimoni.'));
+    grid.appendChild(el('div','empty-note','Testimoni belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -2960,7 +2965,7 @@ async function muatTestimoni(){
     });
   }catch(e){
     console.error("Gagal memuat testimoni:", e);
-    tampilkanErrorRingan(grid, "Testimoni belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(grid, "Testimoni belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 function tampilkanPesanForm(id, kelas, teks){
@@ -2977,7 +2982,7 @@ function pasangFormTestimoni(){
     const msg = document.getElementById('tfMsg');
     msg.className = "form-msg";
     if(!sb){
-      tampilkanPesanForm('tfMsg','form-msg--err','Website belum terhubung ke Supabase, testimoni belum bisa dikirim.');
+      tampilkanPesanForm('tfMsg','form-msg--err','Mohon maaf, testimoni belum bisa dikirim saat ini. Silakan coba lagi nanti.');
       return;
     }
     const payload = {
@@ -2998,7 +3003,7 @@ function pasangFormTestimoni(){
       tampilkanPesanForm('tfMsg','form-msg--ok','Terima kasih! Testimoni Anda telah terkirim dan akan tampil setelah disetujui admin.');
     }catch(e){
       console.error("Gagal mengirim testimoni:", e);
-      tampilkanPesanForm('tfMsg','form-msg--err','Testimoni belum bisa dikirim. Pastikan admin sudah mengaktifkan izin kirim testimoni publik (lihat catatan RLS pada skema database).');
+      tampilkanPesanForm('tfMsg','form-msg--err','Testimoni belum bisa dikirim saat ini. Silakan coba beberapa saat lagi.');
     }finally{
       btn.disabled = false; btn.textContent = "Kirim Testimoni";
     }
@@ -3011,7 +3016,7 @@ async function muatFAQ(){
   if(!wrap) return;
   wrap.innerHTML = "";
   if(!sb){
-    wrap.appendChild(el('div','empty-note','Terhubungkan ke Supabase untuk menampilkan FAQ.'));
+    wrap.appendChild(el('div','empty-note','FAQ belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
@@ -3049,7 +3054,7 @@ async function muatFAQ(){
     });
   }catch(e){
     console.error("Gagal memuat FAQ:", e);
-    tampilkanErrorRingan(wrap, "FAQ belum bisa dimuat. Periksa konfigurasi Supabase.");
+    tampilkanErrorRingan(wrap, "FAQ belum bisa dimuat. Silakan coba beberapa saat lagi.");
   }
 }
 
@@ -3060,7 +3065,7 @@ async function muatHubungiKami(){
   if(!list) return;
   list.innerHTML = ""; mapWrap.innerHTML = "";
   if(!sb){
-    list.appendChild(el('li',null,'Terhubungkan ke Supabase untuk menampilkan data kontak.'));
+    list.appendChild(el('li',null,'Data kontak belum bisa ditampilkan saat ini.'));
     return;
   }
   try{
