@@ -118,7 +118,7 @@
         <div class="hero__meta" id="heroMeta"></div>
         <p class="hero__addr" id="heroAlamat"></p>
         <div class="hero__cta">
-          <a href="#/spmb" class="btn btn--primary">Daftar Lewat SPMB →</a>
+          <a href="#/informasi" class="btn btn--primary">Informasi</a>
           <a href="#/beranda/kontak" class="btn btn--ghost">Hubungi Kami</a>
         </div>
       </div>
@@ -491,6 +491,10 @@
         </div>
         <div id="hubungiMapWrap"></div>
       </div>
+      <div class="sosmed-terpisah reveal">
+        <span class="sosmed-title">Ikuti Media Sosial Resmi Kami</span>
+        <div id="sosmedLayanan" class="sosmed-list"></div>
+      </div>
     </div>
   </section>
   </div><!-- /halamanLayanan (data-page="layanan") -->
@@ -610,6 +614,13 @@
         <h2>Jejak Alumni</h2>
         <p>Kabar dan kesan dari lulusan sekolah yang kini berkarya di berbagai bidang.</p>
       </div>
+      <!-- WADAH GOOGLE FORM ALUMNI -->
+      <div id="alumniFormWrap" class="reveal" style="display: none; margin-bottom: 40px;">
+        <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--ink);">Formulir Pendataan Alumni</h3>
+        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line-soft); box-shadow: var(--shadow-sm); height: 600px; background: var(--paper-2);">
+          <iframe id="alumniFormIframe" src="" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+        </div>
+      </div>
       <div class="alumni-grid reveal" id="alumniGrid"></div>
     </div>
   </section>
@@ -633,7 +644,7 @@
   </div><!-- /halamanStatis (data-page="statis") -->
   
   <section class="section" id="banner-beranda" data-page="beranda" style="padding-top: 50px; padding-bottom: 60px; background: radial-gradient(ellipse at top right, rgba(224,174,82,0.18), transparent 55%), linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%); position: relative; overflow: hidden;">
-    
+  
     <div style="position: absolute; inset: 0; opacity: 0.05; pointer-events: none; background-image: radial-gradient(circle at 1px 1px, #fff 1.4px, transparent 1.4px); background-size: 26px 26px;"></div>
 
     <div class="wrap" style="max-width: 1080px; position: relative; z-index: 2;">
@@ -642,12 +653,19 @@
         <span class="eyebrow" style="color: var(--gold-2);">Sorotan Utama</span>
         <h2 style="color: #fff;">Informasi & Event Spesial</h2>
       </div>
+
+      <div class="agenda-ticker-wrap" id="agendaTickerWrap">
+        <div class="agenda-ticker-label">AGENDA TERDEKAT:</div>
+        <div class="agenda-ticker-content">
+          <div id="agendaTickerText">Memuat agenda terdekat...</div>
+        </div>
+      </div>
       
       <div class="banner-slider" id="bannerSlider" style="border: 1px solid rgba(224,174,82,0.35); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);">
         <div class="banner-track" id="bannerTrack">
           </div>
       </div>
-      
+
     </div>
   </section>
 
@@ -725,11 +743,13 @@
   <section class="section" style="padding-top:0;" data-page="beranda">
     <div class="wrap reveal">
       <div class="cta-split">
-        <div class="cta-panel cta-panel--spmb" id="spmb">
-          <span class="eyebrow" style="color:var(--gold-2);">SPMB</span>
-          <h3 id="spmbTitle">Sistem Penerimaan Murid Baru</h3>
-          <p id="spmbDesc">Memuat informasi pendaftaran…</p>
-          <div id="spmbCtaWrap"></div>
+        <div class="cta-panel cta-panel--spmb" id="unduhanBerandaPanel">
+          <span class="eyebrow" style="color:var(--gold-2);">Dokumen Resmi</span>
+          <h3>Media Unduhan Terbaru</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 16px;">Unduh berbagai formulir, surat edaran, dan dokumen resmi sekolah secara langsung.</p>
+          <div id="unduhanBerandaList" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+            </div>
+          <a href="#/layanan/unduhan" class="btn btn--ghost" style="margin-top: auto; align-self: flex-start;">Lihat Semua Dokumen →</a>
         </div>
         <div class="cta-panel cta-panel--kontak" id="kontak">
           <span class="eyebrow" style="color:var(--gold-2);">Kontak</span>
@@ -737,6 +757,10 @@
           <ul class="kontak-list" id="kontakList"></ul>
           <div id="mapWrap"></div>
         </div>
+      </div>
+      <div class="sosmed-terpisah reveal">
+        <span class="sosmed-title">Ikuti Media Sosial Resmi Kami</span>
+        <div id="sosmedBeranda" class="sosmed-list"></div>
       </div>
     </div>
   </section>
