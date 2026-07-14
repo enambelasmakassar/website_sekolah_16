@@ -36,10 +36,11 @@
       <a href="#/beranda" data-route="beranda" class="active">Beranda</a>
       <a href="#/profil" data-route="profil">Profil Sekolah</a>
       <a href="#/informasi" data-route="informasi">Informasi</a>
+      <a href="#/akademik" data-route="akademik">Akademik</a>
       <a href="#/kesiswaan" data-route="kesiswaan">Kesiswaan</a>
       <a href="#/layanan" data-route="layanan">Layanan Publik</a>
       <a href="#/portal" data-route="portal">Portal Digital</a>
-      <a href="#/spmb" data-route="spmb">SPMB</a>
+      <a href="#/spmb" data-route="spmb" id="navSPMBDesktop">SPMB</a>
       <a href="#/alumni" data-route="alumni">Alumni</a>
       <a href="#/statistik" data-route="statistik">Statistik</a>
     </div>
@@ -53,10 +54,11 @@
     <a href="#/beranda" data-route="beranda">Beranda</a>
     <a href="#/profil" data-route="profil">Profil Sekolah</a>
     <a href="#/informasi" data-route="informasi">Informasi</a>
+    <a href="#/akademik" data-route="akademik">Akademik</a>
     <a href="#/kesiswaan" data-route="kesiswaan">Kesiswaan</a>
     <a href="#/layanan" data-route="layanan">Layanan Publik</a>
     <a href="#/portal" data-route="portal">Portal Digital</a>
-    <a href="#/spmb" data-route="spmb">SPMB</a>
+    <a href="#/spmb" data-route="spmb" id="navSPMBMobile">SPMB</a>
     <a href="#/alumni" data-route="alumni">Alumni</a>
     <a href="#/statistik" data-route="statistik">Statistik</a>
   </div>
@@ -149,7 +151,8 @@
         <div class="hero__meta" id="heroMeta"></div>
         <p class="hero__addr" id="heroAlamat"></p>
         <div class="hero__cta">
-          <a href="#/informasi" class="btn btn--primary">Informasi</a>
+          <a href="#/spmb" class="btn btn--primary" id="heroSPMBBtn">Pendaftaran SPMB</a>
+          <a href="#/informasi" class="btn btn--ghost">Informasi</a>
           <a href="#/beranda/kontak" class="btn btn--ghost">Hubungi Kami</a>
         </div>
       </div>
@@ -173,6 +176,8 @@
       <a href="#/profil/sambutan">Sambutan Kepala Sekolah</a>
       <a href="#/profil/sejarah">Sejarah</a>
       <a href="#/profil/visi-misi">Visi &amp; Misi</a>
+      <a href="#/profil/program-unggulan">Program Unggulan</a>
+      <a href="#/profil/prestasi-instansi">Prestasi Sekolah &amp; Guru</a>
       <a href="#/profil/struktur">Struktur Organisasi</a>
 	  <a href="#/profil/direktori">Direktori Guru & Staf</a>
       <a href="#/profil/fasilitas">Fasilitas Sekolah</a>
@@ -254,6 +259,28 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="program-unggulan">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Profil Sekolah · Kekhasan Sekolah</span>
+        <h2>Program Unggulan</h2>
+        <p>Program khas yang menjadi ciri dan kekuatan sekolah dalam mendidik siswa.</p>
+      </div>
+      <div class="ekskul-grid reveal" id="programUnggulanGrid"></div>
+    </div>
+  </section>
+
+  <section class="prestasi section" id="prestasi-instansi" style="background: var(--paper-2);">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Profil Sekolah · Capaian</span>
+        <h2>Prestasi Sekolah &amp; Guru</h2>
+        <p>Penghargaan dan capaian yang diraih sekolah maupun tenaga pendidik.</p>
+      </div>
+      <div class="prestasi-grid reveal" id="prestasiInstansiGrid"></div>
     </div>
   </section>
 
@@ -369,28 +396,95 @@
   </div><!-- /halamanInformasi (data-page="informasi") -->
 
   <!-- ============================================================
+       AKADEMIK — halaman tersendiri, disembunyikan oleh
+       .page-hidden sampai router mengaktifkannya via #/akademik
+       ============================================================ -->
+  <div data-page="akademik" class="page-hidden" id="halamanAkademik">
+  <div class="subnav-wrap">
+    <div class="wrap subnav" id="subnavAkademik">
+      <a href="#/akademik/kalender">Kalender Akademik</a>
+      <a href="#/akademik/kurikulum">Kurikulum</a>
+      <a href="#/akademik/mata-pelajaran">Daftar Mata Pelajaran</a>
+      <a href="#/akademik/jadwal">Jadwal Pelajaran</a>
+      <a href="#/akademik/data-kelas">Data Kelas</a>
+    </div>
+  </div>
+
+  <section class="section" id="kalender">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Akademik · Kalender</span>
+        <h2>Kalender Akademik</h2>
+        <p>Rangkaian kegiatan dan tanggal penting sekolah, diurutkan dari yang paling dekat.</p>
+      </div>
+      <div class="agenda-timeline reveal" id="agendaTimeline"></div>
+    </div>
+  </section>
+
+  <section class="section" id="kurikulum">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Akademik · Kurikulum</span>
+        <h2>Kurikulum</h2>
+        <p>Dokumen kurikulum yang diterapkan di setiap tingkat.</p>
+      </div>
+      <div class="unduhan-list reveal" id="kurikulumList"></div>
+    </div>
+  </section>
+
+  <section class="section" id="mata-pelajaran" style="background: var(--paper-2);">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Akademik · Kurikulum</span>
+        <h2>Daftar Mata Pelajaran</h2>
+        <p>Mata pelajaran yang diajarkan di setiap tingkat.</p>
+      </div>
+      <div class="mapel-wrap reveal" id="mapelWrap"></div>
+    </div>
+  </section>
+
+  <section class="section" id="jadwal">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Akademik · Jadwal Pelajaran</span>
+        <h2>Jadwal Pelajaran</h2>
+        <p>Pilih tingkat, lalu pilih kelas untuk melihat jadwal pelajarannya.</p>
+      </div>
+      <div class="jadwal-filter reveal">
+        <div class="jadwal-tingkat" id="jadwalTingkatTabs"></div>
+        <div class="jadwal-kelas" id="jadwalKelasTabs"></div>
+      </div>
+      <div class="jadwal-table-wrap reveal" id="jadwalTableWrap">
+        <div class="empty-note">Pilih tingkat dan kelas terlebih dahulu.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="data-kelas">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Akademik · Data Kelas</span>
+        <h2>Data Kelas / Rombongan Belajar</h2>
+        <p>Rekap jumlah kelas dan siswa per tahun ajaran.</p>
+      </div>
+      <div class="kelas-table-wrap reveal" id="dataKelasWrap"></div>
+    </div>
+  </section>
+  </div><!-- /halamanAkademik (data-page="akademik") -->
+
+  <!-- ============================================================
        KESISWAAN — halaman tersendiri, disembunyikan oleh
        .page-hidden sampai router mengaktifkannya via #/kesiswaan
        ============================================================ -->
   <div data-page="kesiswaan" class="page-hidden" id="halamanKesiswaan">
   <div class="subnav-wrap">
     <div class="wrap subnav" id="subnavKesiswaan">
-      <a href="#/kesiswaan/agenda">Agenda &amp; Kalender Akademik</a>
       <a href="#/kesiswaan/prestasi">Ruang Prestasi</a>
       <a href="#/kesiswaan/ekstrakurikuler">Organisasi &amp; Ekstrakurikuler</a>
+      <a href="#/kesiswaan/karya-siswa">Karya Siswa</a>
+      <a href="#/kesiswaan/tata-tertib">Tata Tertib Siswa</a>
     </div>
   </div>
-
-  <section class="section" id="agenda">
-    <div class="wrap">
-      <div class="section__head reveal">
-        <span class="eyebrow">Kesiswaan · Kalender Akademik</span>
-        <h2>Agenda Sekolah</h2>
-        <p>Rangkaian kegiatan dan tanggal penting sekolah, diurutkan dari yang paling dekat.</p>
-      </div>
-      <div class="agenda-timeline reveal" id="agendaTimeline"></div>
-    </div>
-  </section>
 
   <section class="prestasi section" id="prestasi">
     <div class="wrap">
@@ -411,6 +505,28 @@
         <p>Wadah siswa untuk mengembangkan minat dan bakat di luar kegiatan belajar-mengajar.</p>
       </div>
       <div class="ekskul-grid reveal" id="ekskulGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="karya-siswa">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Kesiswaan · Ruang Karya</span>
+        <h2>Karya Siswa</h2>
+        <p>Karya tulis, seni, video, dan hasil kreativitas siswa yang layak diapresiasi.</p>
+      </div>
+      <div class="prestasi-grid reveal" id="karyaSiswaGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="tata-tertib" style="background: var(--paper-2);">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Kesiswaan · Aturan Sekolah</span>
+        <h2>Tata Tertib Siswa</h2>
+        <p>Peraturan yang wajib dipatuhi oleh seluruh siswa selama berada di lingkungan sekolah.</p>
+      </div>
+      <div class="tatib-list reveal" id="tatibList"></div>
     </div>
   </section>
   </div><!-- /halamanKesiswaan (data-page="kesiswaan") -->
@@ -467,7 +583,7 @@
               <option value="Alumni">Alumni</option>
 			  <option value="Guru">Guru</option>
               <option value="Masyarakat">Masyarakat</option>
-			  <option value="Umum">Umum</option>
+			  <option value="Amum">Amum</option>
             </select>
           </div>
           <div class="field field--full">
@@ -708,7 +824,7 @@
         <span class="eyebrow">Agenda Sekolah</span>
         <h2>Kegiatan Terdekat</h2>
         <p>Jadwal dan acara penting sekolah yang akan datang.</p>
-        <a href="#/kesiswaan/agenda" class="link-lihat-semua">Lihat semua agenda
+        <a href="#/akademik/kalender" class="link-lihat-semua">Lihat semua agenda
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
       </div>
@@ -800,6 +916,8 @@
         <li><a href="#/profil/sambutan">Sambutan Kepala Sekolah</a></li>
         <li><a href="#/profil/sejarah">Sejarah</a></li>
         <li><a href="#/profil/visi-misi">Visi &amp; Misi</a></li>
+        <li><a href="#/profil/program-unggulan">Program Unggulan</a></li>
+        <li><a href="#/profil/prestasi-instansi">Prestasi Sekolah &amp; Guru</a></li>
         <li><a href="#/profil/struktur">Struktur Organisasi</a></li>
         <li><a href="#/profil/fasilitas">Fasilitas</a></li>
       </ul>
@@ -815,21 +933,27 @@
       </ul>
     </div>
     <div class="footer__col">
-      <h5>Kesiswaan &amp; Layanan</h5>
+      <h5>Akademik &amp; Kesiswaan</h5>
       <ul>
-        <li><a href="#/kesiswaan/agenda">Agenda Akademik</a></li>
+        <li><a href="#/akademik/kalender">Kalender Akademik</a></li>
+        <li><a href="#/akademik/kurikulum">Kurikulum</a></li>
+        <li><a href="#/akademik/mata-pelajaran">Daftar Mata Pelajaran</a></li>
+        <li><a href="#/akademik/jadwal">Jadwal Pelajaran</a></li>
+        <li><a href="#/akademik/data-kelas">Data Kelas</a></li>
         <li><a href="#/kesiswaan/prestasi">Ruang Prestasi</a></li>
         <li><a href="#/kesiswaan/ekstrakurikuler">Ekstrakurikuler</a></li>
-        <li><a href="#/layanan/unduhan">Media Unduhan</a></li>
-        <li><a href="#/layanan/testimoni">Testimoni</a></li>
-        <li><a href="#/layanan/faq">FAQ</a></li>
+        <li><a href="#/kesiswaan/karya-siswa">Karya Siswa</a></li>
+        <li><a href="#/kesiswaan/tata-tertib">Tata Tertib Siswa</a></li>
       </ul>
     </div>
     <div class="footer__col">
-      <h5>Lainnya</h5>
+      <h5>Layanan &amp; Lainnya</h5>
       <ul>
+        <li><a href="#/layanan/unduhan">Media Unduhan</a></li>
+        <li><a href="#/layanan/testimoni">Testimoni</a></li>
+        <li><a href="#/layanan/faq">FAQ</a></li>
         <li><a href="#/portal">Portal Digital</a></li>
-        <li><a href="#/spmb">SPMB</a></li>
+        <li><a href="#/spmb" id="navSPMBFooter">SPMB</a></li>
         <li><a href="#/alumni">Alumni</a></li>
         <li><a href="#/statis/kebijakan-privasi">Kebijakan Privasi</a></li>
         <li><a href="#/layanan/hubungi-kami">Kontak</a></li>
